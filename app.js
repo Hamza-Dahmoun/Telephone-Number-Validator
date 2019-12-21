@@ -72,9 +72,11 @@ function solution() {
 
     let hasTenDigitsRegEx = /^\D*(\d\D*){10}$/;
     //console.log(hasTenDigitsRegEx.test("555-555-5555"));
+    let hasElevenDigitsRegEx = /^\D*(\d\D*){11}$/;
+    //console.log(hasElevenDigitsRegEx.test("1 555-555-5555"));
 
     // Use the Booleans to return true or false, without needing to string together one complex regular expression
-    if (!hasTenDigitsRegEx && !hasElevenDigits) {
+    if (!hasTenDigitsRegEx.test(str) && !hasElevenDigitsRegEx.test(str)) {
         b = false;
         document.getElementById("result").innerText = b.toString().toUpperCase();
         return b;

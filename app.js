@@ -38,8 +38,8 @@ FALSE:
 123**&!!asdf#
 55555555
 (6054756961)
-2 (757) 622-7382
-0 (757) 622-7382
+2 (757) 622-7382 
+0 (757) 622-7382 
 -1 (757) 622-7382
 2 757 622-7382
 10 (757) 622-7382
@@ -48,23 +48,32 @@ FALSE:
 2(757)6227382
 2(757)622-7382
 555)-555-5555
-555-555-5555
-(555)5(55?)-5555
+(555-555-5555
+(555)5(55?)-5555 ??
 
  */
 
 
-function telephoneCheck() {
-    let b;
-    let str = document.getElementById("textInput").value;
-    let numbersReg = /[0-9]/g;
-    if(numbersReg.test(str) && str.length == 10){
-        b=true
+function solution(str) {
+    // Set up your Booleans here
+    let hasTenDigits = false;
+    let hasElevenDigits = false;
+    let startsWithOne = false;
+    let hasPermittedCharsOnly = false;
+    let hasCorrectParentheses = false;
+
+    // Write regular expressions here so that the Booleans contain the correct values
+    // INSERT CODE WITH REGEX HERE
+
+    // Use the Booleans to return true or false, without needing to string together one complex regular expression
+    if (!hasTenDigits && !hasElevenDigits) {
+        return false;
+    } else if (!hasPermittedCharsOnly || !hasCorrectParentheses) {
+        return false;
+    } else if (hasElevenDigits && !startsWithOne) {
+        return false;
+    } else {
+        return true;
     }
-    else{
-        
-    } 
-    return b;
-  }
-  
-  //telephoneCheck("555-555-5555");
+}
+solution("555-555-5555");

@@ -60,13 +60,6 @@ function solution() {
     //'b' is boolean variable
     let b;
 
-    // Set up your Booleans here
-    let hasTenDigits = false;
-    let hasElevenDigits = false;
-    let startsWithOne = false;
-    let hasPermittedCharsOnly = false;
-    let hasCorrectParentheses = false;
-
     // Write regular expressions here so that the Booleans contain the correct values
     // INSERT CODE WITH REGEX HERE
 

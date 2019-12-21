@@ -75,13 +75,15 @@ function solution() {
     let hasElevenDigitsRegEx = /^\D*(\d\D*){11}$/;
     //console.log(hasElevenDigitsRegEx.test("1 555-555-5555"));
     let startsWithOneRegEx = /^1/;
+    let hasCorrectParenthesesRegEx = /\([0-9]{3}\)/;
+    let hasParenthesis = /[\(\)]/;
 
     // Use the Booleans to return true or false, without needing to string together one complex regular expression
     if (!hasTenDigitsRegEx.test(str) && !hasElevenDigitsRegEx.test(str)) {
         b = false;
         document.getElementById("result").innerText = b.toString().toUpperCase();
         return b;
-    } else if (!hasPermittedCharsOnly || !hasCorrectParentheses) {
+    } else if (!hasItPermittedCharsOnly(str) || (!hasCorrectParenthesesRegEx.test(str) && hasParenthesis.test(str))) {
         b = false;
         document.getElementById("result").innerText = b.toString().toUpperCase();
         return b;

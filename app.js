@@ -54,45 +54,49 @@ FALSE:
  */
 
 
-function solution() {
-    //'str' is the phone number entered by user
+function telephoneNumberValidator() {
     let str = document.getElementById("textInput").value;
-    //'b' is boolean variable
-    let b;
-
-    // Write regular expressions here so that the Booleans contain the correct values
-    // INSERT CODE WITH REGEX HERE
+    // Set up your Booleans here
+    let hasTenDigits = false;
+    let hasElevenDigits = false;
+    let startsWithOne = false;
+    let hasPermittedCharsOnly = false;
+    let hasCorrectParentheses = false;
 
     let hasTenDigitsRegEx = /^\D*(\d\D*){10}$/;
     //console.log(hasTenDigitsRegEx.test("555-555-5555"));
     let hasElevenDigitsRegEx = /^\D*(\d\D*){11}$/;
     //console.log(hasElevenDigitsRegEx.test("1 555-555-5555"));
     let startsWithOneRegEx = /^1/;
-    let hasCorrectParenthesesRegEx = /\([0-9]{3}\)/;
+    let hasPermittedCharsOnlyRegEx = /[0-9][-][\(\)]/;
+    //console.log(hasPermittedCharsOnlyRegEx.test("555-555-5555"));
+    let hasCorrectParenthesesRegEx = /\([0-9]{3}\)/;// /(\({0,1}[0-9]{3}\){0,1})\s{0,1}[0-9]{3}-[0-9]{4}$/;
+    let hasNoParenthesis = /[^\(\)]/;
     let hasParenthesis = /[\(\)]/;
+    console.log(hasCorrectParenthesesRegEx.test("(555)-555-5555"));//true
+    console.log(hasCorrectParenthesesRegEx.test("555-555-5555"));//true ??
 
+    let b;
     // Use the Booleans to return true or false, without needing to string together one complex regular expression
     if (!hasTenDigitsRegEx.test(str) && !hasElevenDigitsRegEx.test(str)) {
-        b = false;
-        document.getElementById("result").innerText = b.toString().toUpperCase();
-        return b;
-    } else if (!hasItPermittedCharsOnly(str) || (!hasCorrectParenthesesRegEx.test(str) && hasParenthesis.test(str))) {
-        b = false;
-        document.getElementById("result").innerText = b.toString().toUpperCase();
-        return b;
+        b= false;
+    } 
+    //else if (!hasPermittedCharsOnlyRegEx.test(str) || !hasCorrectParenthesesRegEx.test(str)) {
+        else if (!hasItPermittedCharsOnly(str) || (!hasCorrectParenthesesRegEx.test(str) && hasParenthesis.test(str))) {
+            //if(!hasNoParenthesis.test(str)){
+                b= false;
+            //}        
     } else if (hasElevenDigitsRegEx.test(str) && !startsWithOneRegEx.test(str)) {
-        b = false;
-        document.getElementById("result").innerText = b.toString().toUpperCase();
-        return b;
+        b= false;
     } else {
-        b = true;
-        document.getElementById("result").innerText = b.toString().toUpperCase();
-        return b;
+        b= true;
     }
+
+    document.getElementById("result").innerText = b.toString().toUpperCase();
+    return b;
 }
 function hasItPermittedCharsOnly(str){
     if(str.includes("?", "!", ":", ".", ";"))
     return false;
     else return true;
 }
-solution("555-555-5555");

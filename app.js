@@ -97,4 +97,9 @@ function solution() {
         return b;
     }
 }
+function hasItPermittedCharsOnly(str){
+    if(str.includes("?", "!", ":", ".", ";"))
+    return false;
+    else return true;
+}
 solution("555-555-5555");

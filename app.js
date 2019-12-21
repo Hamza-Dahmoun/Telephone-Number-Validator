@@ -54,7 +54,12 @@ FALSE:
  */
 
 
-function solution(str) {
+function solution() {
+    //'str' is the phone number entered by user
+    let str = document.getElementById("textInput").value;
+    //'b' is boolean variable
+    let b;
+
     // Set up your Booleans here
     let hasTenDigits = false;
     let hasElevenDigits = false;
@@ -67,13 +72,21 @@ function solution(str) {
 
     // Use the Booleans to return true or false, without needing to string together one complex regular expression
     if (!hasTenDigits && !hasElevenDigits) {
-        return false;
+        b = false;
+        document.getElementById("result").innerText = b.toString().toUpperCase();
+        return b;
     } else if (!hasPermittedCharsOnly || !hasCorrectParentheses) {
-        return false;
+        b = false;
+        document.getElementById("result").innerText = b.toString().toUpperCase();
+        return b;
     } else if (hasElevenDigits && !startsWithOne) {
-        return false;
+        b = false;
+        document.getElementById("result").innerText = b.toString().toUpperCase();
+        return b;
     } else {
-        return true;
+        b = true;
+        document.getElementById("result").innerText = b.toString().toUpperCase();
+        return b;
     }
 }
 solution("555-555-5555");
